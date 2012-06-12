@@ -1,0 +1,5 @@
+name = Media Library User Restrict
+description = "Restrict Media library so users can only access media they created."
+package = "Media"
+dependencies[] = media
+core = 7.x
