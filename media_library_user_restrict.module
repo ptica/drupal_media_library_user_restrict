@@ -9,11 +9,11 @@
  * Implements hook_query_alter().
  */
 function media_library_user_restrict_query_alter(QueryAlterableInterface $query) {
-
-  $tables = $query->getTables();
-  if(isset($tables['base']) && $tables['base']['table'] == 'file_managed' && $_GET['q'] == 'media/browser/list') {
-    global $user;
-    $query->condition('uid', $user->uid);
+  if ($_GET['q'] == 'media/browser/list') {
+    $tables = $query->getTables();
+    if (isset($tables['base']) && $tables['base']['table'] == 'file_managed') {
+      global $user;
+      $query->condition('uid', $user->uid);
+    }
   }
-  
 }
